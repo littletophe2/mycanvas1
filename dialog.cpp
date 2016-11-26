@@ -67,7 +67,10 @@ Dialog::Dialog() : QWidget()
     barel->getTransform()->setScale3D(QVector3D(s,s,s));
     Qt3DExtras::QPhongMaterial *barelMaterial = new Qt3DExtras::QPhongMaterial();
     barelMaterial->setDiffuse(QColor(QRgb(0xbeb32b)));
+    barel->setMaterial(barelMaterial);
 
+    // Set root object of the scene
+    view->setRootEntity(rootEntity);
 
     // Show window
     widget->show();
