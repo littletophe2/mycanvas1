@@ -5,11 +5,15 @@ QT += widgets
 
 SOURCES += main.cpp \
     dialog.cpp \
-    object3d.cpp
+    object3d.cpp \
+    viewer3d.cpp \
+    controlpanel.cpp
 
 HEADERS += \
     dialog.h \
-    object3d.h
+    object3d.h \
+    viewer3d.h \
+    controlpanel.h
 
 RESOURCES += \
     asset.qrc
