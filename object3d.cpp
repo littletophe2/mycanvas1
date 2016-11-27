@@ -1,5 +1,7 @@
 #include "object3d.h"
-
+#include <Qt3DRender/QGeometry>
+#include <Qt3DRender/QAttribute>
+#include <iostream>
 
 Object3d::Object3d(Qt3DCore::QNode *parent):
     Qt3DCore::QEntity(parent),
@@ -58,4 +60,8 @@ Qt3DCore::QTransform * Object3d::getTransform()
 void Object3d::setMesh(QString resourceNameForMesh)
 {
    mesh->setSource(QUrl(resourceNameForMesh));
+
+  /* Qt3DRender::QGeometry * geometry = mesh->geometry();
+   Qt3DRender::QAttribute * bbox = geometry->boundingVolumePositionAttribute();
+   std::cout << bbox;*/
 }

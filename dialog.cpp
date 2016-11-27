@@ -41,7 +41,7 @@ Dialog::Dialog() : QWidget()
     float s= 0.1f;
     barel->getTransform()->setScale3D(QVector3D(s,s,s));
     Qt3DExtras::QPhongMaterial *barelMaterial = new Qt3DExtras::QPhongMaterial();
-    barelMaterial->setDiffuse(QColor(QRgb(0xbeb32b)));
+    barelMaterial->setDiffuse(QColor(QRgb(0xfef32b)));
     barel->setMaterial(barelMaterial);
 
     viewer3d->addObject(barel);

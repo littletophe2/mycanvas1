@@ -5,6 +5,7 @@
 #include <Qt3DRender/QCamera>
 #include <Qt3DExtras/QForwardRenderer>
 #include <Qt3DExtras/QFirstPersonCameraController>
+#include <Qt3DExtras/QOrbitCameraController>
 #include <Qt3DInput/QInputAspect>
 
 #include <QScreen>
@@ -17,7 +18,7 @@ Viewer3d::Viewer3d()
 
     // couleur de fond
     Qt3DExtras::QForwardRenderer * fr =  viewer3d->defaultFramegraph();
-    fr->setClearColor(QColor(QRgb(0x884d4f)));
+    fr->setClearColor(QColor(QRgb(0xfffdfb)));
 
     QScreen * screen = viewer3d->screen();
 
@@ -42,8 +43,16 @@ Viewer3d::Viewer3d()
     cameraEntity->setViewCenter(QVector3D(0, 0, 0));
 
     // For camera controls
-    Qt3DExtras::QFirstPersonCameraController *camController = new Qt3DExtras::QFirstPersonCameraController(rootEntity);
-    camController->setCamera(cameraEntity);
+   /* Qt3DExtras::QFirstPersonCameraController *camController = new Qt3DExtras::QFirstPersonCameraController(rootEntity);
+    camController->setCamera(cameraEntity);*/
+
+
+    Qt3DExtras::QOrbitCameraController *camController2= new Qt3DExtras::QOrbitCameraController(rootEntity);
+    camController2->setCamera(cameraEntity);
+
+
+
+
 
 
 
