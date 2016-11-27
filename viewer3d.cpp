@@ -45,13 +45,7 @@ Viewer3d::Viewer3d()
     Qt3DExtras::QFirstPersonCameraController *camController = new Qt3DExtras::QFirstPersonCameraController(rootEntity);
     camController->setCamera(cameraEntity);
 
-    Object3d *barel = new Object3d(rootEntity);
-    barel->setMesh(QStringLiteral("qrc:/metal_barrel.obj"));
-    float s= 0.1f;
-    barel->getTransform()->setScale3D(QVector3D(s,s,s));
-    Qt3DExtras::QPhongMaterial *barelMaterial = new Qt3DExtras::QPhongMaterial();
-    barelMaterial->setDiffuse(QColor(QRgb(0xbeb32b)));
-    barel->setMaterial(barelMaterial);
+
 
     // Set root object of the scene
     viewer3d->setRootEntity(rootEntity);
@@ -68,4 +62,9 @@ Viewer3d::~Viewer3d()
 QWidget *Viewer3d::getWidget()
 {
     return container;
+}
+
+void Viewer3d::addObject(Object3d * obj3d)
+{
+    obj3d->setParent(rootEntity);
 }

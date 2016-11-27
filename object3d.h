@@ -22,7 +22,7 @@ private:
     Qt3DRender::QMaterial *material;
 
 public:
-    Object3d(Qt3DCore::QNode *parent);
+    Object3d(Qt3DCore::QNode *parent=nullptr);
     ~Object3d();
 
     /**

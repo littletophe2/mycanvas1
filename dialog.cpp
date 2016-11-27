@@ -34,6 +34,18 @@ Dialog::Dialog() : QWidget()
     // Show window
     dialogWindow->show();
     dialogWindow->resize(1200, 800);
+
+
+    Object3d *barel = new Object3d();
+    barel->setMesh(QStringLiteral("qrc:/metal_barrel.obj"));
+    float s= 0.1f;
+    barel->getTransform()->setScale3D(QVector3D(s,s,s));
+    Qt3DExtras::QPhongMaterial *barelMaterial = new Qt3DExtras::QPhongMaterial();
+    barelMaterial->setDiffuse(QColor(QRgb(0xbeb32b)));
+    barel->setMaterial(barelMaterial);
+
+    viewer3d->addObject(barel);
+
 }
 
 
