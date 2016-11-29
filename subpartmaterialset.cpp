@@ -23,7 +23,9 @@ void SubpartMaterialSet::install(Viewer3d *viewer, ControlPanel *controlPanel)
     for(it=names->begin() ; it < names->end(); it++)
     {
         QString str = **it;
-        subpartWidget->layout()->addWidget(new QLabel(str));
+        QLabel * label = new QLabel(str);
+        QLayout * layout = subpartWidget->layout();
+        layout->addWidget(label);
     }
 
     controlPanel->addComponent(subpartWidget);

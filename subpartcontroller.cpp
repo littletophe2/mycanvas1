@@ -5,6 +5,7 @@
 
 SubpartController::SubpartController(QString subpartName)
 {
+    widgetForSubpart=nullptr;
     this->subpartName=subpartName;
     std::cout << "SubpartController";
 }
