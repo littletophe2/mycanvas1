@@ -15,6 +15,7 @@ public:
     ~ControlPanel();
     QWidget *getWidget();
 
+    void addComponent(QWidget * widget);
 
 };
 

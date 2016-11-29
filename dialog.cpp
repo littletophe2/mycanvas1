@@ -11,6 +11,8 @@
 #include <Qt3DInput/QInputAspect>
 #include <Qt3DRender/QCamera>
 #include <Qt3DExtras/QFirstPersonCameraController>
+#include <subpartmaterialset.h>
+#include <stdio.h>
 
 Dialog::Dialog() : QWidget()
 {
@@ -35,7 +37,7 @@ Dialog::Dialog() : QWidget()
     dialogWindow->show();
     dialogWindow->resize(1200, 800);
 
-
+    // Definition of the barel
     Object3d *barel = new Object3d();
     barel->setMesh(QStringLiteral("qrc:/metal_barrel.obj"));
     float s= 0.1f;
@@ -44,7 +46,19 @@ Dialog::Dialog() : QWidget()
     barelMaterial->setDiffuse(QColor(QRgb(0xfef32b)));
     barel->setMaterial(barelMaterial);
 
-    viewer3d->addObject(barel);
+    SubpartMaterialSet * sms = new SubpartMaterialSet("Barel");
+
+    std::vector<Qt3DRender::QMaterial*> * materials = new std::vector<Qt3DRender::QMaterial*>();
+    materials->push_back(barelMaterial);
+    materials->push_back(barelMaterial);
+
+    std::vector<QString*> * names = new std::vector<QString*>();
+    names->push_back(new QString("Material A"));
+    names->push_back(new QString("Material B"));
+
+    sms->init(barel, materials, names);
+    sms->install(viewer3d, controlPanel);
+
 
 }
 

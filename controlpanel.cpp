@@ -23,3 +23,8 @@ QWidget *ControlPanel::getWidget()
 {
     return panel;
 }
+
+void ControlPanel::addComponent(QWidget *widget)
+{
+    layout->addWidget(widget);
+}

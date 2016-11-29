@@ -16,7 +16,9 @@ Object3d::Object3d(Qt3DCore::QNode *parent):
 
 Object3d::~Object3d()
 {
-
+    delete mesh;
+    delete transform;
+    delete material;
 }
 
 /**
@@ -26,6 +28,7 @@ Object3d::~Object3d()
 void Object3d::setMaterial(Qt3DRender::QMaterial * material)
 {
     removeComponent(this->material);
+    delete this->material;
     addComponent(material);
     this->material = material;
 }
@@ -38,6 +41,7 @@ void Object3d::setMaterial(Qt3DRender::QMaterial * material)
 void Object3d::setTransform(Qt3DCore::QTransform * transform)
 {
     removeComponent(this->transform);
+    delete this->transform;
     addComponent(transform);
     this->transform=transform;
 }

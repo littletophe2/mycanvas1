@@ -50,21 +50,14 @@ Viewer3d::Viewer3d()
     Qt3DExtras::QOrbitCameraController *camController2= new Qt3DExtras::QOrbitCameraController(rootEntity);
     camController2->setCamera(cameraEntity);
 
-
-
-
-
-
-
     // Set root object of the scene
     viewer3d->setRootEntity(rootEntity);
-
-
 }
 
 Viewer3d::~Viewer3d()
 {
-
+    delete container;
+    delete rootEntity;
 }
 
 // Widget of the viewer
